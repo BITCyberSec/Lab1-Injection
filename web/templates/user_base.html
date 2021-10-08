@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <link rel="stylesheet" href={{ url_for('static', filename="node_modules/mdbootstrap/css/bootstrap.css") }}>
-    <link rel="stylesheet" href={{ url_for('static', filename="node_modules/mdbootstrap/css/mdb.min.css") }}>
-    <link rel="stylesheet" href={{ url_for('static', filename="node_modules/mdbootstrap/css/style.css") }}>
-    <link rel="stylesheet" href={{ url_for('static', filename="styles/styles.css") }}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/mdbootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/mdbootstrap/css/mdb.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/mdbootstrap/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <style></style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
@@ -16,42 +17,44 @@
 
   <body>
     <div class="container-fluid p-5 justify-content-center">
-    
+
       <div class="row">
         <div class="col-md-4">
-          <img alt="Carrent Logo" style="min-height: 65px; height: 60%" src={{ url_for('static', filename="images/CARRENT.svg") }}>
+          <img alt="Carrent Logo" style="min-height: 65px; height: 60%" src="{{ url_for('static', filename='images/logo.svg') }}" onclick="redirect('/')">
         </div>
         <div class="col-md-5">
           <div class="md-form input-with-post-icon">
-            <img class="fas input-prefix" style="height: 40%" src={{ url_for('static', filename="images/lupka.svg") }} >
-            <input type="text" id="defaultForm-email" class="form-control" placeholder="Czym dziś jeździsz?">
+            <img class="fas input-prefix" style="height: 40%" src="{{ url_for('static', filename='images/lupka.svg') }}">
+            <input type="text" id="defaultForm-search" class="form-control" placeholder="Czym dziś jeździsz?">
           </div>
         </div>
         <div class="col-md-1">
-        <figure>
-          <img alt="cennik" style="min-width: 40px; width: 40%" id="cennik" src={{ url_for('static', filename="images/cennik.svg") }}>
-          <figcaption>cennik</figcaption>
-        </figure>
+          <figure onclick="redirect('/cennik')">
+            <img class="img_link" alt="cennik" style="min-width: 40px; width: 40%" id="cennik" src="{{ url_for('static', filename='images/cennik.svg') }}">
+            <figcaption class="img_link">cennik</figcaption>
+          </figure>
         </div>
         <div class="col-md-1">
-        <figure>
-          <img alt="kontakt" id="kontakt" style="min-width: 40px; width: 40%" src={{ url_for('static', filename="images/kontakt.svg") }}>
-          <figcaption>kontakt</figcaption>
-        </figure>
+          <figure onclick="redirect('/kontakt')">
+            <img class="img_link" alt="kontakt" id="kontakt" style="min-width: 40px; width: 40%" src="{{ url_for('static', filename='images/kontakt.svg') }}">
+            <figcaption class="img_link">kontakt</figcaption>
+          </figure>
         </div>
         <div class="col-md-1">
-        <figure>
-          <img alt="zaloguj" id="zaloguj" style="min-width: 40px; width: 40%" src={{ url_for('static', filename="images/zaloguj.svg") }}>
-          <figcaption>zaloguj</figcaption>
-        </figure>
+          <figure onclick="redirect('/auth')">
+            <img class="img_link" alt="zaloguj" id="zaloguj" style="min-width: 40px; width: 40%" src="{{ url_for('static', filename='images/zaloguj.svg') }}">
+            <figcaption class="img_link">zaloguj</figcaption>
+          </figure>
+        </div>
       </div>
-    </div>
       {% block content %}{% endblock %}
     </div>
-    <script type="text/javascript" src={{ url_for('static', filename="node_modules/mdbootstrap/js/jquery.min.js") }}></script>
-    <script type="text/javascript" src={{ url_for('static', filename="node_modules/mdbootstrap/js/popper.min.js") }}></script>
-    <script type="text/javascript" src={{ url_for('static', filename="node_modules/mdbootstrap/js/bootstrap.js") }}></script>
-    <script type="text/javascript" src={{ url_for('static', filename="node_modules/mdbootstrap/js/mdb.min.js") }}></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/mdbootstrap/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/mdbootstrap/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/mdbootstrap/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/mdbootstrap/js/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='node_modules/mdbootstrap/js/mdb.min.js') }}"></script>
   </body>
 
-  </html>
+</html>
