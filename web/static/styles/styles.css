@@ -1,17 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('fonts.css');
 
 body {
-  font-family: "Lato" !important;
+  font-family: "Lato-thin" !important;
 }
 
 figure {
     text-align: center;
 }
 
+h1 {
+    font-family: "Lato-regular" !important;
+    font-weight: 1000;
+    margin-bottom: 30px;
+}
 
+h3 {
+    font-family: "Lato-regular" !important;
+    font-weight: 300 !important;
+}
 
 .container-fluid {
-justify-content: center;
+    justify-content: center;
 }
 
 .row {
@@ -28,13 +37,51 @@ justify-content: center;
     color: #000;
 }
 
+.md-form {
+    margin: 10px 0px 10px 0px;
+}
+
+.md-form input {
+    text-indent: 5px;
+}
+
 .md-form input[type=text]:focus {
 box-shadow: 0 1px 0 0 #f7a740 !important;
 border-bottom: 1px solid #f7a740 !important;
 }
 
+.md-form textarea:focus {
+    box-shadow: 0px 0px 1px 1px #f7a740 !important;
+    border: 1px solid #f7a740 !important;
+}
+
+.md-form textarea {
+    padding: 8px !important;
+}
+
+::placeholder {
+    font-weight: bold;
+    margin-left: 1vh;
+}
+
+.login_button {
+    background-color: #f7a740;
+    border: none;
+    width: 10%;
+    height: 2rem;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+
 .img_link {
     cursor: pointer;
+}
+
+.cennik_item {
+    width: 50%;
+    padding: 10px 0px 7px 0px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #99998f;
 }
 
 @media (min-width: 768px) {

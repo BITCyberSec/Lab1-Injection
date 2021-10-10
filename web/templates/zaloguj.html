@@ -1,18 +1,80 @@
 {% extends "user_base.html" %}
-{%block title%}Kontakt{%endblock%}
-  {%block content%}
-    <div class="row">
+{%block title%}Logowanie{%endblock%}
+{%block content%}
 
-      <form action="/auth" method="POST">
-
-        <div class="input-group mb-3">
-          <span class="input-group-text border-0" id="search-addon">
-            <img class="fas input-prefix" style="height: 40%" src="{{ url_for('static', filename='images/lupka.svg') }}">
-          </span>
-          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
-        </div>
-        <input value="Submit" type="submit" onclick="submitform()">
-      </form>
-
+<div class="row justify-content-center">
+  <div class="row justify-content-center">
+    <h1>ZALOGUJ SIĘ</h1>
+  </div>
+  <form action="/auth" method="POST" style="width: 100%;">
+    <div class="row justify-content-center">
+      <div class="md-form">
+        <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/email.svg') }}">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="login" name="username">
+      </div>
     </div>
-    {%endblock%}
+    <div class="row justify-content-center">
+      <div class="md-form">
+        <img class="fa prefix mt-1" style="width: 1.8rem;" src="{{ url_for('static', filename='images/hasło.svg') }}">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="password" name="password">
+      </div>
+      <input type="hidden" name="login" value="login">
+    </div>
+    <div class="row justify-content-center">
+      <input type="submit" class="login_button" value="ZALOGUJ">
+    </div>
+  </form>
+</div>
+
+<div class="row justify-content-center">
+  <div class="row justify-content-center mt-5">
+    <center>
+      <h1>NIE MASZ KONTA?<br>ZAREJESTRUJ SIĘ</h1>
+    </center>
+  </div>
+  <form action="/auth" method="POST" style="width: 100%;">
+    <div class="row justify-content-center">
+      <div class="md-form">
+        <img class="fa prefix mt-2" style="width: 1.8rem;"
+          src="{{ url_for('static', filename='images/imie_nazwisko.svg') }}">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="Imię" name="first_name">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="md-form">
+        <img class="fa prefix mt-2" style="width: 1.8rem;"
+          src="{{ url_for('static', filename='images/imie_nazwisko.svg') }}">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="Nazwisko" name="surname">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="md-form">
+        <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/email.svg') }}">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="Adres email" name="email">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="md-form">
+        <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/telefon.svg') }}">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="Telefon" name="phone">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="md-form">
+        <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/hasło.svg') }}">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="Hasło" name="password">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="md-form">
+        <img class="fa prefix mt-1" style="width: 1.8rem;" src="{{ url_for('static', filename='images/hasło.svg') }}">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="Powtórz hasło">
+      </div>
+      <input type="hidden" name="login" value="register">
+    </div>
+    <div class="row justify-content-center">
+      <input type="submit" class="login_button" value="ZAREJESTRUJ SIĘ">
+    </div>
+  </form>
+</div>
+{%endblock%}
