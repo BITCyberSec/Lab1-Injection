@@ -46,12 +46,42 @@ def create_app():
         elif request.method == "POST":
             if_register = True if request.form["login"] == "register" else False
             if if_register:
-                pass
+                first_name = request.form["first_name"]
+                surname = request.form["surname"]
+                email = request.form["email"]
+                phone = request.form["phone"]
+                password = request.form["passwd"]
+                password_repeat = request.form["passwd_repeat"]
+                error = None
+                if not all(
+                    [first_name, surname, email, phone, password, password_repeat]
+                ):
+                    error = "Not all fields have value"
+                elif not re.match(r"^\w{1,30}$", first_name):
+                    error = "Invalid first name"
+                elif not re.match(r"^\w{1,30}$", surname):
+                    error = "Invalid surname"
+                elif not re.match(
+                    r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email
+                ):
+                    error = "Invalid email"
+                elif not re.match(r"^[\+\(]?\d+(?:[- \)\(]+\d+)+$", phone):
+                    error = "Invalid phone number"
+                elif password != password_repeat:
+                    error = "Passwords do not match"
+
+                if error is None:
+                    pass
+                    # TODO: Add sql statements
+
+                return render_template("zaloguj.html", error=error)
+
             else:
                 sql_restricted = ["OR", "AND", "SELECT"]
                 username = request.form["username"]
                 password = request.form["password"]
                 error = None
+
                 if not username:
                     error = "Empty username"
                 elif not password:
@@ -63,17 +93,18 @@ def create_app():
 
                 user_db = get_user_db()
                 user_data = user_db.execute(
-                    f"SELECT * FROM user WHERE username = {username}"
+                    f"SELECT * FROM user WHERE username = '{username}'"
                 ).fetchone()
-                
+
                 if user_data is None:
                     error = "Wrong username or password!"
-                elif user_data['passwd'] != password:
+                elif user_data["passwd"] != password:
                     error = "Wrong username or password!"
-                
+
                 if error is None:
-                    
-                    
+                    return redirect("/")
+                    # TODO: Add session itp
+                return render_template("zaloguj.html", error=error)
 
     @app.route("/auto")
     def auto():

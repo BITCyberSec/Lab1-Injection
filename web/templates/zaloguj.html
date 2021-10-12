@@ -1,12 +1,14 @@
 {% extends "user_base.html" %}
 {%block title%}Logowanie{%endblock%}
 {%block content%}
-
+<script>
+  window.onload = alert('{{ error }}')
+</script>
 <div class="row justify-content-center">
   <div class="row justify-content-center">
     <h1>ZALOGUJ SIĘ</h1>
   </div>
-  <form action="/auth" method="POST" style="width: 100%;">
+  <form action="/auth" method="POST" style="width: 100%;" id="login">
     <div class="row justify-content-center">
       <div class="md-form">
         <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/email.svg') }}">
@@ -21,7 +23,7 @@
       <input type="hidden" name="login" value="login">
     </div>
     <div class="row justify-content-center">
-      <input type="submit" class="login_button" value="ZALOGUJ">
+      <input type="submit" class="login_button" value="ZALOGUJ" form="login">
     </div>
   </form>
 </div>
@@ -32,7 +34,7 @@
       <h1>NIE MASZ KONTA?<br>ZAREJESTRUJ SIĘ</h1>
     </center>
   </div>
-  <form action="/auth" method="POST" style="width: 100%;">
+  <form action="/auth" method="POST" style="width: 100%;" id="register">
     <div class="row justify-content-center">
       <div class="md-form">
         <img class="fa prefix mt-2" style="width: 1.8rem;"
@@ -62,18 +64,19 @@
     <div class="row justify-content-center">
       <div class="md-form">
         <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/hasło.svg') }}">
-        <input type="text" id="defaultForm-search" class="form-control" placeholder="Hasło" name="password">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="Hasło" name="passwd">
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="md-form">
         <img class="fa prefix mt-1" style="width: 1.8rem;" src="{{ url_for('static', filename='images/hasło.svg') }}">
-        <input type="text" id="defaultForm-search" class="form-control" placeholder="Powtórz hasło">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="Powtórz hasło"
+          name="passwd_repeat">
       </div>
       <input type="hidden" name="login" value="register">
     </div>
     <div class="row justify-content-center">
-      <input type="submit" class="login_button" value="ZAREJESTRUJ SIĘ">
+      <input type="submit" class="login_button" value="ZAREJESTRUJ SIĘ" form="register">
     </div>
   </form>
 </div>
