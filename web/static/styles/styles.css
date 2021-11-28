@@ -9,9 +9,14 @@ figure {
 }
 
 h1 {
-    font-family: "Lato-regular" !important;
-    font-weight: 1000;
+    font-family: "Lato-bold" !important;
     margin-bottom: 30px;
+}
+
+h2 {
+    font-family: "Lato-regular" !important;
+    font-size:xx-large;
+    font-weight: 100 !important;
 }
 
 h3 {
@@ -30,7 +35,7 @@ h3 {
 }
 
 .form-control {
-    color: #000;
+    color: #000 !important;
 }
 
 .form-control:focus {
@@ -64,6 +69,11 @@ border-bottom: 1px solid #f7a740 !important;
     margin-left: 1vh;
 }
 
+.black-placeholder::placeholder{
+    color: black;
+    font-weight:bolder;
+}
+
 .login_button {
     background-color: #f7a740;
     border: none;
@@ -71,6 +81,27 @@ border-bottom: 1px solid #f7a740 !important;
     height: 2rem;
     border-radius: 30px;
     margin-top: 30px;
+}
+
+.wynajem_button {
+    background-color: #f7a740;
+    border: none;
+    width: 40%;
+    height: 2rem;
+    border-radius: 30px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 1000;
+}
+
+.search_button {
+    background-color: #fff;
+    border: 0.3px solid #000;
+    width: 15%;
+    height: 3rem;
+    border-radius: 30px;
+    font-size: x-large !important;
+    font-weight: bold;
 }
 
 .img_link {
@@ -84,13 +115,16 @@ border-bottom: 1px solid #f7a740 !important;
     border-bottom: 1px solid #99998f;
 }
 
+.car-container {
+    border-bottom: 1px solid #99998f;
+}
+
+
 @media (min-width: 768px) {
     .carousel-item.active-next {
         display: flex;
     }
 }
-
-
 
 #car_bg { 
     background-image: url('/static/images/main_car.jpg'); 

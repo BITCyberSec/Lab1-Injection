@@ -1,63 +1,64 @@
 {% extends "user_base.html" %}
 {%block title%}Kontakt{%endblock%}
-{%block content%}
-<div class="row justify-content-center">
+  {%block content%}
+    {% if message %}
+      <script>
+        window.onload = alert('{{message}}')
+      </script>
+    {% endif %}
     <div class="row justify-content-center">
+      <div class="row justify-content-center">
         <h1>KONTAKT</h1>
-    </div>
-    <form action="/kontakt" method="POST" style="width: 100%; margin-bottom: 30px">
+      </div>
+      <form action="/kontakt" method="POST" style="width: 100%; margin-bottom: 30px">
         <div class="row justify-content-around px-5">
 
-            <div class="col-md-4">
-                <div class="row justify-content-center">
-                    <div class="md-form" style="width: 100%;">
-                        <img class="fa prefix mt-2" style="width: 1.8rem;"
-                            src="{{ url_for('static', filename='images/imie_nazwisko.svg') }}">
-                        <input type="text" id="defaultForm-search" class="form-control" placeholder="Imię i nazwisko">
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="md-form" style="width: 100%;">
-                        <img class="fa prefix mt-2" style="width: 1.8rem;"
-                            src="{{ url_for('static', filename='images/email.svg') }}">
-                        <input type="text" id="defaultForm-search" class="form-control" placeholder="Adres email">
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="md-form" style="width: 100%;">
-                        <img class="fa prefix mt-2" style="width: 1.8rem;"
-                            src="{{ url_for('static', filename='images/telefon.svg') }}">
-                        <input type="text" id="defaultForm-search" class="form-control" placeholder="Telefon">
-                    </div>
-                </div>
+          <div class="col-md-4">
+            <div class="row justify-content-center">
+              <div class="md-form" style="width: 100%;">
+                <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/imie_nazwisko.svg') }}">
+                <input type="text" id="defaultForm-search" class="form-control" placeholder="Imię i nazwisko" name="name">
+              </div>
             </div>
-            <div class="col-md-6">
-                <div class="row justify-content-center">
-                    <div class="md-form" style="width: 100%;">
-                        <img class="fas prefix mt-2" style="width: 1.8rem;"
-                            src="{{ url_for('static', filename='images/wiadomość.svg') }}">
-                        <textarea id="form_kontakt" class="rounded-0 form-control" rows="7"
-                            placeholder="Wiadomość"></textarea>
-                    </div>
-                </div>
+            <div class="row justify-content-center">
+              <div class="md-form" style="width: 100%;">
+                <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/email.svg') }}">
+                <input type="text" id="defaultForm-search" class="form-control" placeholder="Adres email" name="email">
+              </div>
             </div>
+            <div class="row justify-content-center">
+              <div class="md-form" style="width: 100%;">
+                <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/telefon.svg') }}">
+                <input type="text" id="defaultForm-search" class="form-control" placeholder="Telefon" name="phone">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row justify-content-center">
+              <div class="md-form" style="width: 100%;">
+                <img class="fas prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/wiadomość.svg') }}">
+                <textarea id="form_kontakt" class="rounded-0 form-control" rows="7" placeholder="Wiadomość" name="message"></textarea>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row justify-content-center">
-            <input type="submit" class="login_button" value="WYŚLIJ">
+          <input type="submit" class="login_button" value="WYŚLIJ">
         </div>
-    </form>
-    <div class="row justify-content-center">
+      </form>
+      <div class="row justify-content-center">
         <h1>NASZE DANE</h1>
-    </div>
-    <div class="row justify-content-center">
+      </div>
+      <div class="row justify-content-center">
         <center>
-            <h3>CARRENT Sp. z.o.o.<br>
-                tel: +48 123 456 789<br>
-                email: carrent@poczta.pl<br><br>
-                ul. Abcdefghijk 1<br>
-                99-999 ABCDFE<br>
-            </h3>
+          <h3>CARRENT Sp. z.o.o.<br>
+            tel: +48 123 456 789<br>
+            email: carrent@poczta.pl<br><br>
+            ul. Abcdefghijk 1<br>
+            99-999 ABCDFE<br>
+          </h3>
         </center>
+      </div>
+
     </div>
-</div>
-{%endblock%}
+    {%endblock%}

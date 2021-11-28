@@ -1,0 +1,24 @@
+{% extends "user_base.html" %}
+{% block content %}
+  {% if car %}
+    <div class="row justify-content-center">
+      <div class="col-md-6 p-4">
+        <h1>{{car['car_name']|safe}}</h1>
+        <h2 style="font">Silnik:
+          <span style="color: #f7a740;">{{car['engine']|safe}}</span></h2>
+        <h2>Skrzynia biegów:
+          <span style="color: #f7a740;">{{car['gearbox']|safe}}</span></h2>
+        <h2>Rodzaj paliwa:
+          <span style="color: #f7a740;">######</span></h2>
+        <h2 class="mb-5">Liczba miejsc:
+          <span style="color: #f7a740;">{{car['seats']|safe}}</span></h2>
+        <center>
+          <input type="submit" class="wynajem_button mt-5" value="WYNAJMIJ" form="login">
+        </center>
+      </div>
+      <div class="col-md-6 p-4">
+        <img src="{{url_for('static', filename=car['car_image'])}}" style="width: 100%">
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

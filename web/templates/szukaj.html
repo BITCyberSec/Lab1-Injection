@@ -1,0 +1,17 @@
+{% extends "user_base.html" %}
+{% block content %}
+  {% if cars %}
+    {% for i in cars %}
+      <div class="row justify-content-center car-container px-2 pb-4 my-4">
+        <div class="col-md-2 px-2">
+          <img src="{{url_for('static', filename=i['image'])}}" style="width: 100%;">
+        </div>
+        <div class="col-md-10 px-5">
+          <h2 class="mb-3 mt-1"><a href="/auto/{{i['id']}}" style="color: #f7a740">{{i['name']}}</a></h2>
+          <h3 class="my-1">Silnik: {{i['engine']}}</h3>
+          <h3 class="my-1">Ilość miejsc: {{i['miejsca']}}</h3>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

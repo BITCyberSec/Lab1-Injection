@@ -1,0 +1,14 @@
+{% extends "user_base.html" %}
+
+{% block content %}
+{% if error %}
+    <script>
+    window.onload = alert("{{error}}")
+    </script>
+{% endif %}
+<form action="/admin/auth" method="POST">
+<input type="text" name="username" placeholder="Username">
+<input type="password" name="password" placeholder="Password">
+<input type="submit" value="submit">
+</form> 
+{%endblock%}

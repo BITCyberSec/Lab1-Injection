@@ -1,9 +1,10 @@
 {% extends "user_base.html" %}
 {%block title%}Logowanie{%endblock%}
 {%block content%}
-<script>
+{% if error %}<script>
   window.onload = alert('{{ error }}')
 </script>
+{% endif %}
 <div class="row justify-content-center">
   <div class="row justify-content-center">
     <h1>ZALOGUJ SIĘ</h1>
@@ -12,13 +13,13 @@
     <div class="row justify-content-center">
       <div class="md-form">
         <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/email.svg') }}">
-        <input type="text" id="defaultForm-search" class="form-control" placeholder="login" name="username">
+        <input type="text" id="defaultForm-search" class="form-control" placeholder="Adres email" name="email">
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="md-form">
         <img class="fa prefix mt-1" style="width: 1.8rem;" src="{{ url_for('static', filename='images/hasło.svg') }}">
-        <input type="text" id="defaultForm-search" class="form-control" placeholder="password" name="password">
+        <input type="password" id="defaultForm-search" class="form-control" placeholder="Password" name="password">
       </div>
       <input type="hidden" name="login" value="login">
     </div>
@@ -64,13 +65,13 @@
     <div class="row justify-content-center">
       <div class="md-form">
         <img class="fa prefix mt-2" style="width: 1.8rem;" src="{{ url_for('static', filename='images/hasło.svg') }}">
-        <input type="text" id="defaultForm-search" class="form-control" placeholder="Hasło" name="passwd">
+        <input type="password" id="defaultForm-search" class="form-control" placeholder="Hasło" name="passwd">
       </div>
     </div>
     <div class="row justify-content-center">
       <div class="md-form">
         <img class="fa prefix mt-1" style="width: 1.8rem;" src="{{ url_for('static', filename='images/hasło.svg') }}">
-        <input type="text" id="defaultForm-search" class="form-control" placeholder="Powtórz hasło"
+        <input type="password" id="defaultForm-search" class="form-control" placeholder="Powtórz hasło"
           name="passwd_repeat">
       </div>
       <input type="hidden" name="login" value="register">
