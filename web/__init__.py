@@ -135,7 +135,6 @@ def create_app():
                 return render_template("zaloguj.html", error=error)
             # LOGIN FORM was submited
             else:
-                sql_restricted = ["OR", "AND", "SELECT"]
                 email = request.form["email"]
                 password = request.form["password"]
                 error = None
@@ -145,10 +144,6 @@ def create_app():
                     error = "Empty username"
                 elif not password:
                     error = "Empty password"
-                elif any(
-                    word in (email + password).upper() for word in sql_restricted
-                ):
-                    error = "Invalid username or password"
 
                 user_db = get_user_db()
                 user_data = user_db.execute(
